@@ -1,0 +1,324 @@
+{
+  "name": "Clinical Brain MRI Volumetrics",
+  "summary": "Brain extraction, bias correction, MNI registration, SynthSeg segmentation, optional WMH lesion segmentation and a volumetric report from T1w (+FLAIR) NIfTI volumes.",
+  "description": "Takes T1-weighted NIfTI volumes (and optionally a FLAIR per subject), skull-strips them with SynthStrip, corrects the bias field with ANTs N4, registers them to MNI152NLin2009cAsym with ANTs, segments them with SynthSeg, segments white-matter hyperintensities with LST-AI when a FLAIR is present, and writes a per-subject HTML report with ICV-normalised volumes, asymmetry indices and screening flags. Every intermediate volume is kept as derivatives.",
+  "inputs": [
+    {
+      "id": "t1w",
+      "name": "T1-weighted volumes",
+      "description": "One or more T1w NIfTI files (.nii or .nii.gz).",
+      "position": {
+        "x": 40,
+        "y": 160
+      }
+    },
+    {
+      "id": "flair",
+      "name": "FLAIR volumes",
+      "description": "Optional FLAIR NIfTI files for the lesion branch, one per subject, named <subject>_FLAIR.nii.gz.",
+      "optional": true,
+      "position": {
+        "x": 40,
+        "y": 420
+      }
+    }
+  ],
+  "processors": [
+    {
+      "id": "prep",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-nifti-prep",
+      "dependsOn": [
+        "t1w",
+        "flair"
+      ],
+      "position": {
+        "x": 260,
+        "y": 280
+      }
+    },
+    {
+      "id": "strip",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-synthstrip",
+      "dependsOn": [
+        "prep"
+      ],
+      "inputs": [
+        {
+          "from": "prep",
+          "output": "t1w",
+          "input": "t1w"
+        }
+      ],
+      "position": {
+        "x": 520,
+        "y": 160
+      }
+    },
+    {
+      "id": "n4",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-ants-n4",
+      "dependsOn": [
+        "strip"
+      ],
+      "inputs": [
+        {
+          "from": "strip",
+          "output": "brain",
+          "input": "image"
+        },
+        {
+          "from": "strip",
+          "output": "mask",
+          "input": "mask"
+        }
+      ],
+      "position": {
+        "x": 780,
+        "y": 160
+      }
+    },
+    {
+      "id": "seg",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-synthseg",
+      "dependsOn": [
+        "n4"
+      ],
+      "inputs": [
+        {
+          "from": "n4",
+          "output": "corrected",
+          "input": "image"
+        }
+      ],
+      "position": {
+        "x": 1040,
+        "y": 60
+      }
+    },
+    {
+      "id": "mni",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-ants-mni",
+      "dependsOn": [
+        "n4",
+        "seg"
+      ],
+      "inputs": [
+        {
+          "from": "n4",
+          "output": "corrected",
+          "input": "image"
+        },
+        {
+          "from": "seg",
+          "output": "labels",
+          "input": "labels"
+        }
+      ],
+      "position": {
+        "x": 1300,
+        "y": 160
+      }
+    },
+    {
+      "id": "wmh",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-lst-ai",
+      "dependsOn": [
+        "prep"
+      ],
+      "inputs": [
+        {
+          "from": "prep",
+          "output": "t1w",
+          "input": "t1w"
+        },
+        {
+          "from": "prep",
+          "output": "flair",
+          "input": "flair"
+        }
+      ],
+      "position": {
+        "x": 520,
+        "y": 420
+      }
+    },
+    {
+      "id": "report",
+      "type": "processor",
+      "sourceUrl": "https://github.com/Pennsieve/processor-brain-volumetrics",
+      "dependsOn": [
+        "prep",
+        "strip",
+        "seg",
+        "mni",
+        "wmh"
+      ],
+      "inputs": [
+        {
+          "from": "seg",
+          "output": "volumes",
+          "input": "volumes"
+        },
+        {
+          "from": "seg",
+          "output": "qc",
+          "input": "qc"
+        },
+        {
+          "from": "seg",
+          "output": "labels",
+          "input": "labels"
+        },
+        {
+          "from": "strip",
+          "output": "brain",
+          "input": "brain"
+        },
+        {
+          "from": "strip",
+          "output": "mask",
+          "input": "mask"
+        },
+        {
+          "from": "mni",
+          "output": "warped",
+          "input": "warped"
+        },
+        {
+          "from": "mni",
+          "output": "transforms",
+          "input": "transforms"
+        },
+        {
+          "from": "wmh",
+          "output": "lesions",
+          "input": "lesions"
+        },
+        {
+          "from": "wmh",
+          "output": "lesion_volumes",
+          "input": "lesion_volumes"
+        },
+        {
+          "from": "prep",
+          "output": "metadata",
+          "input": "metadata"
+        }
+      ],
+      "position": {
+        "x": 1560,
+        "y": 280
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "id": "report_out",
+      "name": "Report",
+      "from": {
+        "step": "report",
+        "output": "report"
+      },
+      "default": {
+        "targetType": "pennsieve",
+        "params": {
+          "TARGET_FOLDER": "derivatives/report"
+        }
+      },
+      "position": {
+        "x": 1820,
+        "y": 200
+      }
+    },
+    {
+      "id": "tables_out",
+      "name": "Tables",
+      "from": {
+        "step": "report",
+        "output": "tables"
+      },
+      "default": {
+        "targetType": "pennsieve",
+        "params": {
+          "TARGET_FOLDER": "derivatives/tables"
+        }
+      },
+      "position": {
+        "x": 1820,
+        "y": 300
+      }
+    },
+    {
+      "id": "segmentation_out",
+      "name": "Segmentation",
+      "from": {
+        "step": "seg",
+        "output": "labels"
+      },
+      "default": {
+        "targetType": "pennsieve",
+        "params": {
+          "TARGET_FOLDER": "derivatives/synthseg"
+        }
+      },
+      "position": {
+        "x": 1820,
+        "y": 400
+      }
+    },
+    {
+      "id": "mni_out",
+      "name": "MNI-space volumes",
+      "from": {
+        "step": "mni",
+        "output": "warped"
+      },
+      "default": {
+        "targetType": "pennsieve",
+        "params": {
+          "TARGET_FOLDER": "derivatives/mni"
+        }
+      },
+      "position": {
+        "x": 1820,
+        "y": 500
+      }
+    },
+    {
+      "id": "lesions_out",
+      "name": "WMH lesion masks",
+      "from": {
+        "step": "wmh",
+        "output": "lesions"
+      },
+      "default": {
+        "targetType": "pennsieve",
+        "params": {
+          "TARGET_FOLDER": "derivatives/wmh"
+        }
+      },
+      "position": {
+        "x": 1820,
+        "y": 600
+      }
+    },
+    {
+      "id": "brain_out",
+      "name": "Skull-stripped volumes",
+      "from": {
+        "step": "strip",
+        "output": "brain"
+      },
+      "position": {
+        "x": 1820,
+        "y": 700
+      }
+    }
+  ]
+}

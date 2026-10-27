@@ -1,0 +1,4 @@
+data/
+*.nii
+*.nii.gz
+.DS_Store
