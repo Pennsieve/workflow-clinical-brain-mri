@@ -202,8 +202,8 @@
         },
         {
           "from": "wmh",
-          "output": "lesion_volumes",
-          "input": "lesion_volumes"
+          "output": "lesion-volumes",
+          "input": "lesion-volumes"
         },
         {
           "from": "prep",

@@ -62,7 +62,7 @@ rm -rf "$WORK/report"
 link_input report volumes seg volumes; link_input report qc seg qc; link_input report labels seg labels
 link_input report brain strip brain;   link_input report mask strip mask
 link_input report warped mni warped;   link_input report transforms mni transforms
-[ "$SKIP_WMH" != "1" ] && { link_input report lesions wmh lesions; link_input report lesion_volumes wmh lesion_volumes; }
+[ "$SKIP_WMH" != "1" ] && { link_input report lesions wmh lesions; link_input report lesion-volumes wmh lesion-volumes; }
 link_input report metadata prep metadata
 run_step report processor-brain-volumetrics
 echo; echo "Report: $WORK/report/output/report/index.html"
