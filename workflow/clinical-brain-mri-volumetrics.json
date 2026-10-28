@@ -1,6 +1,6 @@
 {
   "name": "Clinical Brain MRI Volumetrics",
-  "summary": "Brain extraction, bias correction, MNI registration, SynthSeg segmentation, optional WMH lesion segmentation and a volumetric report from T1w (+FLAIR) NIfTI volumes.",
+  "summary": "T1w (+FLAIR) NIfTI \u2192 SynthStrip, ANTs N4, MNI registration, SynthSeg, LST-AI WMH, volumetric report.",
   "description": "Takes T1-weighted NIfTI volumes (and optionally a FLAIR per subject), skull-strips them with SynthStrip, corrects the bias field with ANTs N4, registers them to MNI152NLin2009cAsym with ANTs, segments them with SynthSeg, segments white-matter hyperintensities with LST-AI when a FLAIR is present, and writes a per-subject HTML report with ICV-normalised volumes, asymmetry indices and screening flags. Every intermediate volume is kept as derivatives.",
   "inputs": [
     {
