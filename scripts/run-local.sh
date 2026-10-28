@@ -29,7 +29,7 @@ run_step() { # run_step <step> <repo> [ENV=VAL ...]
   echo "== $step ($repo)"; local t0=$(date +%s)
   docker run --rm --platform "$PLATFORM" -u 1000:1000 \
     -v "$WORK/$step/input:/data/input:ro" -v "$WORK/$step/output:/data/output" \
-    -e INPUT_DIR=/data/input -e OUTPUT_DIR=/data/output "${envs[@]}" "$IMAGE_PREFIX/$repo" \
+    -e INPUT_DIR=/data/input -e OUTPUT_DIR=/data/output ${envs[@]+"${envs[@]}"} "$IMAGE_PREFIX/$repo" \
     2>&1 | tee "$WORK/$step/log.txt" | sed 's/^/   /'
   echo "   done in $(( $(date +%s) - t0 ))s"
 }
