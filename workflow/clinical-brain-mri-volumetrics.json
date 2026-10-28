@@ -233,7 +233,7 @@
         "output": "report"
       },
       "default": {
-        "targetType": "pennsieve",
+        "targetType": "Pennsieve Dataset",
         "params": {
           "TARGET_FOLDER": "derivatives/report"
         }
@@ -251,7 +251,7 @@
         "output": "tables"
       },
       "default": {
-        "targetType": "pennsieve",
+        "targetType": "Pennsieve Dataset",
         "params": {
           "TARGET_FOLDER": "derivatives/tables"
         }
@@ -269,7 +269,7 @@
         "output": "labels"
       },
       "default": {
-        "targetType": "pennsieve",
+        "targetType": "Pennsieve Dataset",
         "params": {
           "TARGET_FOLDER": "derivatives/synthseg"
         }
@@ -287,7 +287,7 @@
         "output": "warped"
       },
       "default": {
-        "targetType": "pennsieve",
+        "targetType": "Pennsieve Dataset",
         "params": {
           "TARGET_FOLDER": "derivatives/mni"
         }
@@ -305,7 +305,7 @@
         "output": "lesions"
       },
       "default": {
-        "targetType": "pennsieve",
+        "targetType": "Pennsieve Dataset",
         "params": {
           "TARGET_FOLDER": "derivatives/wmh"
         }
