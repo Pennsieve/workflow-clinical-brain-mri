@@ -22,13 +22,13 @@ report a researcher or clinician can read, plus every derived volume as data.
 
 | Step | App | Tool | What it adds |
 |---|---|---|---|
-| prep | [processor-nifti-prep](https://github.com/Pennsieve/processor-nifti-prep) | nibabel, dcm2niix | Validates and reorients to RAS, names files by subject and modality, records header and scanner metadata |
-| strip | [processor-synthstrip](https://github.com/Pennsieve/processor-synthstrip) | SynthStrip 1.8 | Skull stripping: brain image + mask |
-| n4 | [processor-ants-n4](https://github.com/Pennsieve/processor-ants-n4) | ANTs 2.6.5 | Bias-field correction inside the brain mask |
-| seg | [processor-synthseg](https://github.com/Pennsieve/processor-synthseg) | SynthSeg 2.0 | Whole-brain segmentation (FreeSurfer labels), structure volumes, QC scores |
-| mni | [processor-ants-mni](https://github.com/Pennsieve/processor-ants-mni) | ANTs 2.6.5 + MNI152NLin2009cAsym | Registration to MNI space, warps the label map along, registration Dice |
-| wmh | [processor-lst-ai](https://github.com/Pennsieve/processor-lst-ai) | LST-AI 2.0 | White-matter hyperintensity segmentation from T1w + FLAIR (skipped when no FLAIR) |
-| report | [processor-brain-volumetrics](https://github.com/Pennsieve/processor-brain-volumetrics) | nilearn, pandas | Per-subject HTML report, ICV-normalised volumes, asymmetry indices, screening flags, cohort tables |
+| prep | [processor-nifti-prep](https://github.com/pennsieve-apps/processor-nifti-prep) | nibabel, dcm2niix | Validates and reorients to RAS, names files by subject and modality, records header and scanner metadata |
+| strip | [processor-synthstrip](https://github.com/pennsieve-apps/processor-synthstrip) | SynthStrip 1.8 | Skull stripping: brain image + mask |
+| n4 | [processor-ants-n4](https://github.com/pennsieve-apps/processor-ants-n4) | ANTs 2.6.5 | Bias-field correction inside the brain mask |
+| seg | [processor-synthseg](https://github.com/pennsieve-apps/processor-synthseg) | SynthSeg 2.0 | Whole-brain segmentation (FreeSurfer labels), structure volumes, QC scores |
+| mni | [processor-ants-mni](https://github.com/pennsieve-apps/processor-ants-mni) | ANTs 2.6.5 + MNI152NLin2009cAsym | Registration to MNI space, warps the label map along, registration Dice |
+| wmh | [processor-lst-ai](https://github.com/pennsieve-apps/processor-lst-ai) | LST-AI 2.0 | White-matter hyperintensity segmentation from T1w + FLAIR (skipped when no FLAIR) |
+| report | [processor-brain-volumetrics](https://github.com/pennsieve-apps/processor-brain-volumetrics) | nilearn, pandas | Per-subject HTML report, ICV-normalised volumes, asymmetry indices, screening flags, cohort tables |
 
 Every step loops over all subjects it finds, so one run processes a cohort. Files are named in
 BIDS-derivatives style (`<subject>_desc-brain_T1w.nii.gz`, `<subject>_dseg.nii.gz`, ...) and steps
