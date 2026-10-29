@@ -27,7 +27,7 @@
     {
       "id": "prep",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-nifti-prep",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-nifti-prep",
       "dependsOn": [
         "t1w",
         "flair"
@@ -36,14 +36,14 @@
         "x": 260,
         "y": 280
       },
-      "tag": "v0.1.0",
+      "tag": "v0.1.1",
       "cpu": "1024",
       "memory": "4096"
     },
     {
       "id": "strip",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-synthstrip",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-synthstrip",
       "dependsOn": [
         "prep"
       ],
@@ -58,14 +58,14 @@
         "x": 520,
         "y": 160
       },
-      "tag": "v0.1.0",
+      "tag": "v0.1.1",
       "cpu": "2048",
       "memory": "12288"
     },
     {
       "id": "n4",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-ants-n4",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-ants-n4",
       "dependsOn": [
         "strip"
       ],
@@ -85,14 +85,14 @@
         "x": 780,
         "y": 160
       },
-      "tag": "v0.1.0",
+      "tag": "v0.1.1",
       "cpu": "2048",
       "memory": "8192"
     },
     {
       "id": "seg",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-synthseg",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-synthseg",
       "dependsOn": [
         "n4"
       ],
@@ -107,14 +107,14 @@
         "x": 1040,
         "y": 60
       },
-      "tag": "v0.1.0",
+      "tag": "v0.1.1",
       "cpu": "4096",
       "memory": "30720"
     },
     {
       "id": "mni",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-ants-mni",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-ants-mni",
       "dependsOn": [
         "n4",
         "seg"
@@ -135,14 +135,14 @@
         "x": 1300,
         "y": 160
       },
-      "tag": "v0.1.0",
+      "tag": "v0.1.1",
       "cpu": "4096",
       "memory": "16384"
     },
     {
       "id": "wmh",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-lst-ai",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-lst-ai",
       "dependsOn": [
         "prep"
       ],
@@ -162,14 +162,14 @@
         "x": 520,
         "y": 420
       },
-      "tag": "v0.2.0",
+      "tag": "v0.2.1",
       "cpu": "4096",
       "memory": "16384"
     },
     {
       "id": "report",
       "type": "processor",
-      "sourceUrl": "https://github.com/Pennsieve/processor-brain-volumetrics",
+      "sourceUrl": "https://github.com/pennsieve-apps/processor-brain-volumetrics",
       "dependsOn": [
         "prep",
         "strip",
@@ -233,7 +233,7 @@
         "x": 1560,
         "y": 280
       },
-      "tag": "v0.1.0",
+      "tag": "v0.1.1",
       "cpu": "2048",
       "memory": "8192"
     }
