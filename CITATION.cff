@@ -1,0 +1,628 @@
+cff-version: "1.2.0"
+message: If you use this app, please cite it and the works it builds on, listed under references.
+type: software
+title: Clinical Brain MRI Volumetrics
+abstract: 'An end-to-end neuroimaging workflow built from Pennsieve apps: it skull-strips, bias-corrects,
+  registers and segments T1-weighted brain MRI (with white-matter hyperintensity segmentation when a FLAIR
+  is present) and writes a volumetric report per subject.'
+authors:
+- name: Pennsieve (University of Pennsylvania)
+repository-code: https://github.com/pennsieve-apps/workflow-clinical-brain-mri
+license: Apache-2.0
+keywords:
+- neuroimaging
+- mri
+- nifti
+- segmentation
+- volumetrics
+- workflow
+references:
+- type: article
+  title: 'The first step for neuroimaging data analysis: DICOM to NIfTI conversion'
+  authors:
+  - family-names: Li
+    given-names: Xiangrui
+  - family-names: Morgan
+    given-names: Paul S.
+  - family-names: Ashburner
+    given-names: John
+  - family-names: Smith
+    given-names: Jolinda
+  - family-names: Rorden
+    given-names: Christopher
+  year: 2016
+  journal: Journal of Neuroscience Methods
+  volume: 264
+  start: '47'
+  end: '56'
+  doi: 10.1016/j.jneumeth.2016.03.001
+- type: article
+  title: 'SynthStrip: skull-stripping for any brain image'
+  authors:
+  - family-names: Hoopes
+    given-names: Andrew
+  - family-names: Mora
+    given-names: Jocelyn S.
+  - family-names: Dalca
+    given-names: Adrian V.
+  - family-names: Fischl
+    given-names: Bruce
+  - family-names: Hoffmann
+    given-names: Malte
+  year: 2022
+  journal: NeuroImage
+  volume: 260
+  start: '119474'
+  doi: 10.1016/j.neuroimage.2022.119474
+- type: article
+  title: 'N4ITK: Improved N3 Bias Correction'
+  authors:
+  - family-names: Tustison
+    given-names: Nicholas J
+  - family-names: Avants
+    given-names: Brian B
+  - family-names: Cook
+    given-names: Philip A
+  - family-names: Zheng
+    given-names: Yuanjie
+  - family-names: Egan
+    given-names: Alexander
+  - family-names: Yushkevich
+    given-names: Paul A
+  - family-names: Gee
+    given-names: James C
+  year: 2010
+  journal: IEEE Transactions on Medical Imaging
+  volume: 29
+  issue: '6'
+  start: '1310'
+  end: '1320'
+  doi: 10.1109/TMI.2010.2046908
+- type: article
+  title: The ANTsX ecosystem for quantitative biological and medical imaging
+  authors:
+  - family-names: Tustison
+    given-names: Nicholas J.
+  - family-names: Cook
+    given-names: Philip A.
+  - family-names: Holbrook
+    given-names: Andrew J.
+  - family-names: Johnson
+    given-names: Hans J.
+  - family-names: Muschelli
+    given-names: John
+  - family-names: Devenyi
+    given-names: Gabriel A.
+  - family-names: Duda
+    given-names: Jeffrey T.
+  - family-names: Das
+    given-names: Sandhitsu R.
+  - family-names: Cullen
+    given-names: Nicholas C.
+  - family-names: Gillen
+    given-names: Daniel L.
+  - family-names: Yassa
+    given-names: Michael A.
+  - family-names: Stone
+    given-names: James R.
+  - family-names: Gee
+    given-names: James C.
+  - family-names: Avants
+    given-names: Brian B.
+  year: 2021
+  journal: Scientific Reports
+  volume: 11
+  issue: '1'
+  start: '9068'
+  doi: 10.1038/s41598-021-87564-6
+- type: article
+  title: 'Symmetric diffeomorphic image registration with cross-correlation: Evaluating automated labeling
+    of elderly and neurodegenerative brain'
+  authors:
+  - family-names: AVANTS
+    given-names: B
+  - family-names: EPSTEIN
+    given-names: C
+  - family-names: GROSSMAN
+    given-names: M
+  - family-names: GEE
+    given-names: J
+  year: 2008
+  journal: Medical Image Analysis
+  volume: 12
+  issue: '1'
+  start: '26'
+  end: '41'
+  doi: 10.1016/j.media.2007.06.004
+- type: article
+  title: Unbiased average age-appropriate atlases for pediatric studies
+  authors:
+  - family-names: Fonov
+    given-names: Vladimir
+  - family-names: Evans
+    given-names: Alan C.
+  - family-names: Botteron
+    given-names: Kelly
+  - family-names: Almli
+    given-names: C. Robert
+  - family-names: McKinstry
+    given-names: Robert C.
+  - family-names: Collins
+    given-names: D. Louis
+  year: 2011
+  journal: NeuroImage
+  volume: 54
+  issue: '1'
+  start: '313'
+  end: '327'
+  doi: 10.1016/j.neuroimage.2010.07.033
+- type: article
+  title: 'SynthSeg: Segmentation of brain MRI scans of any contrast and resolution without retraining'
+  authors:
+  - family-names: Billot
+    given-names: Benjamin
+  - family-names: Greve
+    given-names: Douglas N.
+  - family-names: Puonti
+    given-names: Oula
+  - family-names: Thielscher
+    given-names: Axel
+  - family-names: Van Leemput
+    given-names: Koen
+  - family-names: Fischl
+    given-names: Bruce
+  - family-names: Dalca
+    given-names: Adrian V.
+  - family-names: Iglesias
+    given-names: Juan Eugenio
+  year: 2023
+  journal: Medical Image Analysis
+  volume: 86
+  start: '102789'
+  doi: 10.1016/j.media.2023.102789
+- type: article
+  title: Robust machine learning segmentation for large-scale analysis of heterogeneous clinical brain
+    MRI datasets
+  authors:
+  - family-names: Billot
+    given-names: Benjamin
+  - family-names: Magdamo
+    given-names: Colin
+  - family-names: Cheng
+    given-names: You
+  - family-names: Arnold
+    given-names: Steven E.
+  - family-names: Das
+    given-names: Sudeshna
+  - family-names: Iglesias
+    given-names: Juan Eugenio
+  year: 2023
+  journal: Proceedings of the National Academy of Sciences
+  volume: 120
+  issue: '9'
+  start: e2216399120
+  doi: 10.1073/pnas.2216399120
+- type: article
+  title: 'LST-AI: A deep learning ensemble for accurate MS lesion segmentation'
+  authors:
+  - family-names: Wiltgen
+    given-names: Tun
+  - family-names: McGinnis
+    given-names: Julian
+  - family-names: Schlaeger
+    given-names: Sarah
+  - family-names: Kofler
+    given-names: Florian
+  - family-names: Voon
+    given-names: CuiCi
+  - family-names: Berthele
+    given-names: Achim
+  - family-names: Bischl
+    given-names: Daria
+  - family-names: Grundl
+    given-names: Lioba
+  - family-names: Will
+    given-names: Nikolaus
+  - family-names: Metz
+    given-names: Marie
+  - family-names: Schinz
+    given-names: David
+  - family-names: Sepp
+    given-names: Dominik
+  - family-names: Prucker
+    given-names: Philipp
+  - family-names: Schmitz-Koep
+    given-names: Benita
+  - family-names: Zimmer
+    given-names: Claus
+  - family-names: Menze
+    given-names: Bjoern
+  - family-names: Rueckert
+    given-names: Daniel
+  - family-names: Hemmer
+    given-names: Bernhard
+  - family-names: Kirschke
+    given-names: Jan
+  - family-names: Mühlau
+    given-names: Mark
+  - family-names: Wiestler
+    given-names: Benedikt
+  year: 2024
+  journal: 'NeuroImage: Clinical'
+  volume: 42
+  start: '103611'
+  doi: 10.1016/j.nicl.2024.103611
+- type: article
+  title: Automated brain extraction of multisequence MRI using artificial neural networks
+  authors:
+  - family-names: Isensee
+    given-names: Fabian
+  - family-names: Schell
+    given-names: Marianne
+  - family-names: Pflueger
+    given-names: Irada
+  - family-names: Brugnara
+    given-names: Gianluca
+  - family-names: Bonekamp
+    given-names: David
+  - family-names: Neuberger
+    given-names: Ulf
+  - family-names: Wick
+    given-names: Antje
+  - family-names: Schlemmer
+    given-names: Heinz-Peter
+  - family-names: Heiland
+    given-names: Sabine
+  - family-names: Wick
+    given-names: Wolfgang
+  - family-names: Bendszus
+    given-names: Martin
+  - family-names: Maier-Hein
+    given-names: Klaus H.
+  - family-names: Kickingereder
+    given-names: Philipp
+  year: 2019
+  journal: Human Brain Mapping
+  volume: 40
+  issue: '17'
+  start: '4952'
+  end: '4964'
+  doi: 10.1002/hbm.24750
+- type: article
+  title: 'IC-P-174: Fast Automatic Segmentation of Hippocampal Subfields and Medial Temporal Lobe Subregions
+    In 3 Tesla and 7 Tesla T2-Weighted MRI'
+  authors:
+  - family-names: Yushkevich
+    given-names: Paul A.
+  - family-names: Pluta
+    given-names: John
+  - family-names: Wang
+    given-names: Hongzhi
+  - family-names: Wisse
+    given-names: Laura E.M.
+  - family-names: Das
+    given-names: Sandhitsu
+  - family-names: Wolk
+    given-names: David
+  year: 2016
+  journal: Alzheimer's & Dementia
+  volume: 12
+  issue: 7S Part 2
+  start: P126
+  end: P127
+  doi: 10.1016/j.jalz.2016.06.205
+- type: article
+  title: FastSurfer - A fast and accurate deep learning based neuroimaging pipeline
+  authors:
+  - family-names: Henschel
+    given-names: Leonie
+  - family-names: Conjeti
+    given-names: Sailesh
+  - family-names: Estrada
+    given-names: Santiago
+  - family-names: Diers
+    given-names: Kersten
+  - family-names: Fischl
+    given-names: Bruce
+  - family-names: Reuter
+    given-names: Martin
+  year: 2020
+  journal: NeuroImage
+  volume: 219
+  start: '117012'
+  doi: 10.1016/j.neuroimage.2020.117012
+- type: article
+  title: 'FastSurferVINN: Building resolution-independence into deep learning segmentation methods—A solution
+    for HighRes brain MRI'
+  authors:
+  - family-names: Henschel
+    given-names: Leonie
+  - family-names: Kügler
+    given-names: David
+  - family-names: Reuter
+    given-names: Martin
+  year: 2022
+  journal: NeuroImage
+  volume: 251
+  start: '118933'
+  doi: 10.1016/j.neuroimage.2022.118933
+- type: article
+  title: Machine learning for neuroimaging with scikit-learn
+  authors:
+  - family-names: Abraham
+    given-names: Alexandre
+  - family-names: Pedregosa
+    given-names: Fabian
+  - family-names: Eickenberg
+    given-names: Michael
+  - family-names: Gervais
+    given-names: Philippe
+  - family-names: Mueller
+    given-names: Andreas
+  - family-names: Kossaifi
+    given-names: Jean
+  - family-names: Gramfort
+    given-names: Alexandre
+  - family-names: Thirion
+    given-names: Bertrand
+  - family-names: Varoquaux
+    given-names: Gaël
+  year: 2014
+  journal: Frontiers in Neuroinformatics
+  volume: 8
+  doi: 10.3389/fninf.2014.00014
+- type: article
+  title: A multi-subject, multi-modal human neuroimaging dataset
+  authors:
+  - family-names: Wakeman
+    given-names: Daniel G
+  - family-names: Henson
+    given-names: Richard N
+  year: 2015
+  journal: Scientific Data
+  volume: 2
+  issue: '1'
+  start: '150001'
+  doi: 10.1038/sdata.2015.1
+- type: article
+  title: A mind-brain-body dataset of MRI, EEG, cognition, emotion, and peripheral physiology in young
+    and old adults
+  authors:
+  - family-names: Babayan
+    given-names: Anahit
+  - family-names: Erbey
+    given-names: Miray
+  - family-names: Kumral
+    given-names: Deniz
+  - family-names: Reinelt
+    given-names: Janis D.
+  - family-names: Reiter
+    given-names: Andrea M. F.
+  - family-names: Röbbig
+    given-names: Josefin
+  - family-names: Schaare
+    given-names: H. Lina
+  - family-names: Uhlig
+    given-names: Marie
+  - family-names: Anwander
+    given-names: Alfred
+  - family-names: Bazin
+    given-names: Pierre-Louis
+  - family-names: Horstmann
+    given-names: Annette
+  - family-names: Lampe
+    given-names: Leonie
+  - family-names: Nikulin
+    given-names: Vadim V.
+  - family-names: Okon-Singer
+    given-names: Hadas
+  - family-names: Preusser
+    given-names: Sven
+  - family-names: Pampel
+    given-names: André
+  - family-names: Rohr
+    given-names: Christiane S.
+  - family-names: Sacher
+    given-names: Julia
+  - family-names: Thöne-Otto
+    given-names: Angelika
+  - family-names: Trapp
+    given-names: Sabrina
+  - family-names: Nierhaus
+    given-names: Till
+  - family-names: Altmann
+    given-names: Denise
+  - family-names: Arelin
+    given-names: Katrin
+  - family-names: Blöchl
+    given-names: Maria
+  - family-names: Bongartz
+    given-names: Edith
+  - family-names: Breig
+    given-names: Patric
+  - family-names: Cesnaite
+    given-names: Elena
+  - family-names: Chen
+    given-names: Sufang
+  - family-names: Cozatl
+    given-names: Roberto
+  - family-names: Czerwonatis
+    given-names: Saskia
+  - family-names: Dambrauskaite
+    given-names: Gabriele
+  - family-names: Dreyer
+    given-names: Maria
+  - family-names: Enders
+    given-names: Jessica
+  - family-names: Engelhardt
+    given-names: Melina
+  - family-names: Fischer
+    given-names: Marie Michele
+  - family-names: Forschack
+    given-names: Norman
+  - family-names: Golchert
+    given-names: Johannes
+  - family-names: Golz
+    given-names: Laura
+  - family-names: Guran
+    given-names: C. Alexandrina
+  - family-names: Hedrich
+    given-names: Susanna
+  - family-names: Hentschel
+    given-names: Nicole
+  - family-names: Hoffmann
+    given-names: Daria I.
+  - family-names: Huntenburg
+    given-names: Julia M.
+  - family-names: Jost
+    given-names: Rebecca
+  - family-names: Kosatschek
+    given-names: Anna
+  - family-names: Kunzendorf
+    given-names: Stella
+  - family-names: Lammers
+    given-names: Hannah
+  - family-names: Lauckner
+    given-names: Mark E.
+  - family-names: Mahjoory
+    given-names: Keyvan
+  - family-names: Kanaan
+    given-names: Ahmad S.
+  - family-names: Mendes
+    given-names: Natacha
+  - family-names: Menger
+    given-names: Ramona
+  - family-names: Morino
+    given-names: Enzo
+  - family-names: Näthe
+    given-names: Karina
+  - family-names: Neubauer
+    given-names: Jennifer
+  - family-names: Noyan
+    given-names: Handan
+  - family-names: Oligschläger
+    given-names: Sabine
+  - family-names: Panczyszyn-Trzewik
+    given-names: Patricia
+  - family-names: Poehlchen
+    given-names: Dorothee
+  - family-names: Putzke
+    given-names: Nadine
+  - family-names: Roski
+    given-names: Sabrina
+  - family-names: Schaller
+    given-names: Marie-Catherine
+  - family-names: Schieferbein
+    given-names: Anja
+  - family-names: Schlaak
+    given-names: Benito
+  - family-names: Schmidt
+    given-names: Robert
+  - family-names: Gorgolewski
+    given-names: Krzysztof J.
+  - family-names: Schmidt
+    given-names: Hanna Maria
+  - family-names: Schrimpf
+    given-names: Anne
+  - family-names: Stasch
+    given-names: Sylvia
+  - family-names: Voss
+    given-names: Maria
+  - family-names: Wiedemann
+    given-names: Annett
+  - family-names: Margulies
+    given-names: Daniel S.
+  - family-names: Gaebler
+    given-names: Michael
+  - family-names: Villringer
+    given-names: Arno
+  year: 2019
+  journal: Scientific Data
+  volume: 6
+  issue: '1'
+  start: '180308'
+  doi: 10.1038/sdata.2018.308
+- type: data
+  title: Multisubject, multimodal face processing
+  authors:
+  - family-names: Wakeman
+    given-names: DG
+  - family-names: Apšvalka
+    given-names: D
+  - family-names: Henson
+    given-names: RN
+  year: 2026
+  publisher:
+    name: OpenNeuro
+  doi: 10.18112/openneuro.ds000117.v2.0.0
+  license: CC0-1.0
+- type: data
+  title: MPI-Leipzig_Mind-Brain-Body
+  authors:
+  - family-names: Babayan
+    given-names: Anahit
+  - family-names: Baczkowski
+    given-names: Blazeij
+  - family-names: Cozatl
+    given-names: Roberto
+  - family-names: Dreyer
+    given-names: Maria
+  - family-names: Engen
+    given-names: Haakon
+  - family-names: Erbey
+    given-names: Miray
+  - family-names: Falkiewicz
+    given-names: Marcel
+  - family-names: Farrugia
+    given-names: Nicolas
+  - family-names: Gaebler
+    given-names: Michael
+  - family-names: Golchert
+    given-names: Johannes
+  - family-names: Golz
+    given-names: Laura
+  - family-names: Gorgolewski
+    given-names: Krzysztof
+  - family-names: Haueis
+    given-names: Philipp
+  - family-names: Huntenburg
+    given-names: Julia
+  - family-names: Jost
+    given-names: Rebecca
+  - family-names: Kramarenko
+    given-names: Yelyzaveta
+  - family-names: Krause
+    given-names: Sarah
+  - family-names: Kumral
+    given-names: Deniz
+  - family-names: Lauckner
+    given-names: Mark
+  - family-names: Margulies
+    given-names: Daniel S.
+  - family-names: Mendes
+    given-names: Natacha
+  - family-names: Ohrnberger
+    given-names: Katharina
+  - family-names: Oligschläger
+    given-names: Sabine
+  - family-names: Osoianu
+    given-names: Anastasia
+  - family-names: Pool
+    given-names: Jared
+  - family-names: Reichelt
+    given-names: Janis
+  - family-names: Reiter
+    given-names: Andrea
+  - family-names: Röbbig
+    given-names: Josefin
+  - family-names: Schaare
+    given-names: Lina
+  - family-names: Smallwood
+    given-names: Jonathan
+  - family-names: Villringer
+    given-names: Arno
+  year: 2020
+  publisher:
+    name: OpenNeuro
+  doi: 10.18112/openneuro.ds000221.v1.0.0
+  license: CC0-1.0
